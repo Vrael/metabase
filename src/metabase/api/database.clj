@@ -516,7 +516,7 @@
                 (m/update-existing details k (constantly (get-in database [:details k])))
                 details))
             details
-            database/sensitive-fields))))
+            (database/get-sensitive-fields (driver.u/database->driver database))))))
 
 (api/defendpoint PUT "/:id"
   "Update a `Database`."
